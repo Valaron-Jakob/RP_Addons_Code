@@ -91,7 +91,8 @@ function generateProperties() {
     for ( var row in row_list ) {
         const current_range = current_sheet.getRange(row_list[row] + ":" + row_list[row]).getValues()
 
-        new_properties_folder.createFile(current_range[0][2] + '.properties', createPropertiesString(current_range[0]))
+        const item_name = current_range[0][2]
+        output_folder.createFile(`${item_name}.properties`, createPropertiesString(current_range[0]))
     }
 }
 
@@ -113,7 +114,7 @@ function createPropertiesString(row_array) {
     } else {
         var texture_path = `optifine/cit/textures/${folder}`
     }
-    const model_path   = `optifine/cit/models/items`
+    const model_path = `optifine/cit/models/items`
 
     const additional = row_array[9]
                             .replace(/\[texture_path\]/g, `${texture_path}/${file_name}`)
