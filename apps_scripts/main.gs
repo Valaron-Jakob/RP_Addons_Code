@@ -67,8 +67,8 @@ function generateOptifineFolder() {
             }
         }
         
-        // creates a new <name>.properties file inside the correct folder
         const item_name = current_range[0][2]
+        // creates a new <name>.properties file inside the correct folder
         output_folder.createFile(`${item_name}.properties`, createPropertiesString(current_range[0]))
     }
 }
@@ -90,8 +90,8 @@ function generateProperties() {
 
     for ( var row in row_list ) {
         const current_range = current_sheet.getRange(row_list[row] + ":" + row_list[row]).getValues()
-
         const item_name = current_range[0][2]
+        // creates a new <name>.properties file inside the correct folder
         output_folder.createFile(`${item_name}.properties`, createPropertiesString(current_range[0]))
     }
 }
@@ -142,6 +142,3 @@ function buildMatcher(name_en, name_de) {
         .replace(/ö/g, '\\\\u00F6')
         .replace(/ß/g, '\\\\u00DF')
 }
-
-
-
